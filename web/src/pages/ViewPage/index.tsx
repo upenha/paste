@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react"
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { Container } from "./styles"
 import TextArea, { CreateCodeResponse } from '../../components/TextArea'
@@ -8,12 +8,10 @@ import { TextBox } from "../../components/TextArea/styles"
 
 const ViewPage = () => {
   const { id } = useParams<{ id: string }>()
-  const navigate = useNavigate()
   const [code, setCode] = useState('')
 
   console.log(id)
 
-  if (!id) navigate({ pathname: '/' })
 
   useEffect(() => {
     api.get<CreateCodeResponse>(`/code/${id}`)
@@ -23,7 +21,7 @@ const ViewPage = () => {
     .catch((e) => {
       console.log(e)
 
-      navigate('/')
+      // navigate('/')
     })
   },)
 

@@ -6,10 +6,7 @@ import { GlobalStyle } from './styles/globalStyle'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <Router />
     <GlobalStyle />
   </React.StrictMode>,
 )
