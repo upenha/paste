@@ -5,7 +5,7 @@ import { Button, Container, Icon, TextBox } from "./styles"
 import { dracula, draculaInit } from '@uiw/codemirror-theme-dracula'
 import { javascript } from '@codemirror/lang-javascript'
 import { api } from "../../services/api";
-import { Redirect, useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export interface CreateCodeResponse {
   code: string
@@ -30,8 +30,9 @@ const TextArea = ({ isPreview = false, previewCode }: Props) => {
       code
     })
     
-    const history = useHistory()
-    return history.replace(`/code/${data.id}`)
+    const navigate = useNavigate()
+    navigate(`/code/${data.id}`)
+    
 
   }
 
