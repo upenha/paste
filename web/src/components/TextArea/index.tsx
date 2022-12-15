@@ -31,7 +31,7 @@ const TextArea = ({ isPreview = false, previewCode }: Props) => {
     })
     
     const history = useHistory()
-    return <Redirect to={{ pathname: `/code/${data.id}` }} />
+    return history.go(`/code/${data.id}`)
 
   }
 
