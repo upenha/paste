@@ -9,6 +9,9 @@ export const Router = () => {
         <Route path="/" exact>
           <CreatePage />
         </Route>
+        <Route path="/teste">
+          <h1>Teste</h1>
+        </Route>
         <Route path="/code/:id"> 
           <ViewPage />
         </Route>
