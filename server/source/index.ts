@@ -17,4 +17,4 @@ app.get('/health', (req: Request, res: Response) => {
 
 
 
-export { app }
+export default app 
