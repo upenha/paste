@@ -31,7 +31,7 @@ const TextArea = ({ isPreview = false, previewCode }: Props) => {
     })
     
     const history = useHistory()
-    history.push(`/code/${data.id}`)
+    history.push({ pathname: `/code/${data.id}`})
 
   }
 
