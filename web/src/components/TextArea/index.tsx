@@ -5,7 +5,7 @@ import { Button, Container, Icon, TextBox } from "./styles"
 import { dracula, draculaInit } from '@uiw/codemirror-theme-dracula'
 import { javascript } from '@codemirror/lang-javascript'
 import { api } from "../../services/api";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
 export interface CreateCodeResponse {
   code: string
@@ -31,7 +31,7 @@ const TextArea = ({ isPreview = false, previewCode }: Props) => {
     })
     
     const history = useHistory()
-    history.push({ pathname: `/code/${data.id}`})
+    return <Redirect to={`/code/${data.id}`} />;
 
   }
 
