@@ -36,7 +36,7 @@ const TextArea = ({ isPreview = false, previewCode }: Props) => {
       code
     })
     
-    await copyTextToClipboard(import.meta.env.VITE_BASE_URL + `/code/${data.id}`)
+    await copyTextToClipboard(import.meta.env.BASE_URL + `/code/${data.id}`)
     
 
   }
