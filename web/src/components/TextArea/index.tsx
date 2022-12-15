@@ -31,6 +31,7 @@ const TextArea = ({ isPreview = false, previewCode }: Props) => {
     })
     
     const navigate = useNavigate()
+    console.log(data)
     navigate(`/code/${data.id}`)
     
 
