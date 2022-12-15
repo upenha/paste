@@ -6,7 +6,9 @@ export const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<CreatePage />}/>
-      <Route path="/code/:id" element={<ViewPage />}/>
+      <Route path="code"> 
+        <Route path=":id" element={<ViewPage />}/>
+      </Route>
     </Routes>
   )
 }
