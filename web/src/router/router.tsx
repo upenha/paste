@@ -1,19 +1,12 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import CreatePage from '../pages/CreatePage'
 import ViewPage from '../pages/ViewPage'
 
 export const Router = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact>
-          <CreatePage />
-        </Route>
-
-        <Route path="/code/:id">
-          <ViewPage />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<CreatePage />}/>
+      <Route path="/code/:id" element={<ViewPage />}/>
+    </Routes>
   )
 }
