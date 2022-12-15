@@ -5,7 +5,6 @@ import { Button, Container, Icon, TextBox } from "./styles"
 import { dracula, draculaInit } from '@uiw/codemirror-theme-dracula'
 import { javascript } from '@codemirror/lang-javascript'
 import { api } from "../../services/api";
-import { useNavigate } from "react-router-dom";
 
 export interface CreateCodeResponse {
   code: string
@@ -23,6 +22,13 @@ interface Props {
 const TextArea = ({ isPreview = false, previewCode }: Props) => {
   const [code, setCode] = useState('')
 
+  async function copyTextToClipboard(text: string) {
+    if ('clipboard' in navigator) {
+      return await navigator.clipboard.writeText(text);
+    } else {
+      return document.execCommand('copy', true, text);
+    }
+  }
   async function sendCodeToApi (event: FormEvent) {
     event.preventDefault()
 
@@ -30,9 +36,7 @@ const TextArea = ({ isPreview = false, previewCode }: Props) => {
       code
     })
     
-    const navigate = useNavigate()
-    console.log(data)
-    navigate(`/code/${data.id}`)
+    await copyTextToClipboard(import.meta.env.VITE_BASE_URL + `/code/${data.id}`)
     
 
   }
