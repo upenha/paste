@@ -6,13 +6,12 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 model Document {
-  id        String   @id @unique
+  id        String   @id @map("_id") @db.String
   code      String
   ip        String
   createdAt DateTime @default(now())
