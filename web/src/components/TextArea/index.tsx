@@ -29,7 +29,7 @@ const TextArea = ({ isPreview = false, previewCode }: Props) => {
       code
     })
     
-    await navigator.clipboard.writeText(`http://localhost:5173/code/${data.id}`)
+    await navigator.clipboard.writeText(`https://${process.env.VITE_VERCEL_URL}/code/${data.id}`)
 
   }
 
