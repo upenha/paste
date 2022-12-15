@@ -35,7 +35,8 @@ const TextArea = ({ isPreview = false, previewCode }: Props) => {
     const { data } = await api.post<CreateCodeResponse>('/code', {
       code
     })
-    
+    console.log(import.meta.env.VERCEL_URL)
+    console.log(import.meta.env.VITE_VERCEL_URL)
     await copyTextToClipboard('https://' + import.meta.env.VITE_VERCEL_URL + `/code/${data.id}`)
     
 
