@@ -7,16 +7,16 @@ import { api } from '../../services/api'
 import { TextBox } from "../../components/TextArea/styles"
 
 const ViewPage = () => {
-  const params = useParams<{ id: string }>()
+  const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const [code, setCode] = useState('')
 
-  console.log(params)
+  console.log(id)
 
-  if (!params.id) navigate({ pathname: '/' })
+  if (!id) navigate({ pathname: '/' })
 
   useEffect(() => {
-    api.get<CreateCodeResponse>(`/code/${params.id}`)
+    api.get<CreateCodeResponse>(`/code/${id}`)
     .then(response => {
       setCode(response.data.code)
     })
