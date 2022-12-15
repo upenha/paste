@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export const api = axios.create({
-  baseURL: 'https://paste-five.vercel.app/api'
+  baseURL: import.meta.env.API_URL
 })
